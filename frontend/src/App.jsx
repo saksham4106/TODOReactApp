@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
+
+const API = "http://localhost:8000"
 function App() {
   const [todos, setTodos] = useState([])
   const [showAddTodoMenu, setShowAddTodoMenu] = useState(false)
@@ -14,7 +16,7 @@ function App() {
   }, [])
 
   const getTodo = async() => {
-          fetch("http://localhost:8000/getTodos")
+          fetch(API + "/getTodos")
           .then((res) => res.json())
           .then(data => {
             data = JSON.parse(data)
@@ -24,7 +26,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await fetch("http://localhost:8000/addTodo", {
+    await fetch(API + "/addTodo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -35,7 +37,7 @@ function App() {
   }
 
   const removeTodo = async(id) => {
-      await fetch("http://localhost:8000/removeTodo", {
+      await fetch(API + "/removeTodo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -47,7 +49,7 @@ function App() {
 
   const updateTodo = async(e) => {
     e.preventDefault()
-    await fetch("http://localhost:8000/updateTodo", {
+    await fetch(API + "/updateTodo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

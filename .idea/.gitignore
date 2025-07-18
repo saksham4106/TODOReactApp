@@ -8,3 +8,10 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+/.
+/inspectionProfiles/
+/.gitignore
+/misc.xml
+/modules.xml
+/TodoApp.iml
+/vcs.xml
